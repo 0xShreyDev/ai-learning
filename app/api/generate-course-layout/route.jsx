@@ -33,9 +33,9 @@ const PROMPT = `Genrate Learning Course depends on following details. In which M
 
 User Input:`;
 
-  export const ai = new GoogleGenAI({
-      apiKey: process.env.GEMINI_API_KEY,
-    });
+const ai = new GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY,
+});
 
 export async function POST(req) {
   try {
@@ -43,8 +43,6 @@ export async function POST(req) {
     console.log("Incoming course data:", formData);
 
     const user = await currentUser();
-
-
 
     const model = 'gemini-2.0-flash';
     const contents = [
@@ -62,17 +60,15 @@ export async function POST(req) {
     const RawJson = RawResp.replace('```json', '').replace('```', '');
     const JSONResp = JSON.parse(RawJson);
 
-
     const ImagePrompt = JSONResp.course?.bannerImagePrompt;
-    const bannerImageUrl= await GenerateImage(ImagePrompt)
-
+    const bannerImageUrl = await GenerateImage(ImagePrompt);
 
     await db.insert(coursesTable).values({
       ...formData,
       courseJson: JSON.stringify(JSONResp),
       userEmail: user?.primaryEmailAddress?.emailAddress || "guest@example.com",
       cid: courseId,
-      bannerImageUrl:bannerImageUrl
+      bannerImageUrl: bannerImageUrl,
     });
 
     return NextResponse.json({ success: true, courseId });
@@ -85,7 +81,6 @@ export async function POST(req) {
     );
   }
 }
-
 
 const GenerateImage = async (imagePrompt) => {
   const BASE_URL = 'https://aigurulab.tech';
@@ -112,7 +107,7 @@ const GenerateImage = async (imagePrompt) => {
     return result.data.image;
 
   } catch (error) {
-    console.error("Error generating image:", error.response?.data || error.message)
+    console.error("Error generating image:", error.response?.data || error.message);
     return null;
   }
 };
