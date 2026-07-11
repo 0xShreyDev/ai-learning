@@ -23,13 +23,12 @@ function CourseInfo({ course, viewCourse }) {
                 courseId: course?.cid
             });
             console.log(result.data);
+            setLoading(false);
             router.replace('/workspace')
             toast.success('Course Generated successfully')
         } catch (e) {
             console.error(e);
             toast.error("Server Side error, Try Again!")
-        } finally {
-            setLoading(false);
         }
     };
 
@@ -63,8 +62,8 @@ function CourseInfo({ course, viewCourse }) {
                 </div>
                 {!viewCourse ? <Button onClick={GenerateCourseContent} disabled={loading}>
                     {loading ? 'Generating...' : 'Generate Content'}
-                </Button> : 
-                <Link href={'/course/'+course?.cid}><Button> <PlayCircle /> Continue Learning </Button> </Link>}
+                </Button> :
+                    <Link href={'/course/' + course?.cid}><Button> <PlayCircle /> Continue Learning </Button> </Link>}
             </div>
 
             {course?.bannerImageUrl && (
