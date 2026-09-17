@@ -54,7 +54,7 @@ export async function POST(req) {
     const RawResp = response?.candidates?.[0]?.content?.parts?.[0]?.text || "";
     if (!RawResp) throw new Error("Empty response from Gemini API");
 
-    const RawJson = RawResp.replace('```json', '').replace('```', '');
+    const RawJson = RawResp.replace(/```json|```/g, '').trim();
     const JSONResp = JSON.parse(RawJson);
 
     const ImagePrompt = JSONResp.course?.bannerImagePrompt;
