@@ -76,7 +76,7 @@ const GetYoutubeVideo = async (topic) => {
   const params = {
     part: 'snippet',
     q: topic,
-    maxResult: 4,
+    maxResults: 4,
     type: 'video',
     key: process.env.YOUTUBE_API_KEY
   }
