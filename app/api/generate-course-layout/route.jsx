@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import { ai } from '../../../lib/ai';
 import { NextResponse } from 'next/server';
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from '../../../config/db';
@@ -33,9 +33,6 @@ const PROMPT = `Genrate Learning Course depends on following details. In which M
 
 User Input:`;
 
-export const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
 
 export async function POST(req) {
   try {
