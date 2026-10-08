@@ -33,7 +33,7 @@ const PROMPT = `Genrate Learning Course depends on following details. In which M
 
 User Input:`;
 
-const ai = new GoogleGenAI({
+export const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
 
@@ -44,7 +44,7 @@ export async function POST(req) {
 
     const user = await currentUser();
 
-    const model = 'gemini-2.0-flash';
+    const model = 'gemini-3.5-flash-lite';
     const contents = [
       {
         role: 'user',

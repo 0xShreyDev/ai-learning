@@ -15,23 +15,23 @@ function CourseInfo({ course, viewCourse }) {
     const router = useRouter();
 
     const GenerateCourseContent = async () => {
-        setLoading(true);
-        try {
-            const result = await axios.post('/api/generate-course-content', {
-                courseJson: courseLayout,
-                courseTitle: course?.name,
-                courseId: course?.cid
-            });
-            console.log(result.data);
-            router.replace('/workspace')
-            toast.success('Course Generated successfully')
-        } catch (e) {
-            console.error(e);
-            toast.error("Server Side error, Try Again!")
-        } finally {
-            setLoading(false);
-        }
-    };
+    setLoading(true);
+    try {
+        const result = await axios.post('/api/generate-course-content', {
+            courseJson: courseLayout,
+            courseTitle: course?.name,
+            courseId: course?.cid,
+        });
+        console.log(result.data);
+        toast.success('Course Generated successfully');
+        router.replace('/workspace');
+    } catch (e) {
+        console.error(e);
+        toast.error('Server Side error, Try Again!');
+    } finally {
+        setLoading(false);
+    }
+};
 
     return (
         <div className="flex flex-col md:flex-row gap-5 justify-between rounded-2xl shadow p-5">
@@ -63,8 +63,8 @@ function CourseInfo({ course, viewCourse }) {
                 </div>
                 {!viewCourse ? <Button onClick={GenerateCourseContent} disabled={loading}>
                     {loading ? 'Generating...' : 'Generate Content'}
-                </Button> : 
-                <Link href={'/course/'+course?.cid}><Button> <PlayCircle /> Continue Learning </Button> </Link>}
+                </Button> :
+                    <Link href={'/course/' + course?.cid}><Button> <PlayCircle /> Continue Learning </Button> </Link>}
             </div>
 
             {course?.bannerImageUrl && (

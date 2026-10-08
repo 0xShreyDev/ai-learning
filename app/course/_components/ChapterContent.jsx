@@ -19,7 +19,7 @@ function ChapterContent({ courseInfo, refreshData }) {
   const topics = selectedChapter?.topics || [];
   let completedChapter = enrollCourse?.completedChapter ?? [];
 
-  // ✅ Mark chapter as completed
+  
   const markChapterCompleted = async () => {
     if (!completedChapter.includes(selectedChapterIndex)) {
       completedChapter.push(selectedChapterIndex);
@@ -35,7 +35,7 @@ function ChapterContent({ courseInfo, refreshData }) {
     toast.success('Chapter marked as Completed!');
   };
 
-  // ✅ Mark chapter as incomplete
+ 
   const markInCompleteChapter = async () => {
     const updatedChapters = completedChapter.filter(
       (item) => item !== selectedChapterIndex
@@ -43,7 +43,7 @@ function ChapterContent({ courseInfo, refreshData }) {
 
     const result = await axios.put('/api/enroll-course', {
       courseId: courseId,
-      completedChapter: updatedChapters, // <-- fixed here
+      completedChapter: updatedChapters, 
     });
 
     console.log(result);
@@ -100,7 +100,7 @@ function ChapterContent({ courseInfo, refreshData }) {
                 dangerouslySetInnerHTML={{ __html: topic?.content }}
                 style={{
                   lineHeight: '2.5',
-                  wordWrap: 'break-word', // ✅ added to prevent overflow
+                  wordWrap: 'break-word', 
                   overflowWrap: 'break-word',
                 }}
               ></div>

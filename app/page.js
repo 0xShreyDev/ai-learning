@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="text-gray-800 font-sans bg-white">
 
-      {/* Navbar */}
+      
       <header className="flex justify-between items-center px-20 py-6 shadow-md">
         <h1 className="text-xl font-bold text-blue-600">AI-Powered Learning</h1>
         <nav className="flex space-x-8 text-gray-700 font-medium">
@@ -38,7 +38,7 @@ function App() {
       
       <section className="px-20 py-16 text-center">
         <h2 className="text-5xl font-extrabold mb-4">
-          Unlock Your Potential with <span className="text-green-500">AI-Powered Learning</span> 💡
+          Unlock Your Potential with <span className="text-green-500">AI-Powered Learning</span> 
         </h2>
         <p className="text-lg text-gray-600 mb-8">
           Experience personalized learning paths, instant feedback, and intelligent insights.
@@ -51,7 +51,7 @@ function App() {
             Start
           </button>
           <button className="bg-gray-200 px-6 py-3 rounded font-semibold hover:bg-gray-300">
-            Learn More 💪
+            Learn More 
           </button>
         </div>
         <img
@@ -63,7 +63,7 @@ function App() {
 
       
       <section className="px-20 py-20 bg-white text-center">
-        <h3 className="text-3xl font-bold mb-12">Key Features ✨</h3>
+        <h3 className="text-3xl font-bold mb-12">Key Features </h3>
         <div className="grid grid-cols-3 gap-8">
           <div className="bg-gray-100 p-8 rounded shadow">
             <h4 className="text-xl font-semibold mb-2">AI-Driven Personalization</h4>
@@ -81,7 +81,7 @@ function App() {
       </section>
 
       <section className="px-20 py-20 bg-gradient-to-r from-blue-500 to-blue-700 text-white text-center">
-        <h3 className="text-3xl font-bold mb-12">How It Works 🤯</h3>
+        <h3 className="text-3xl font-bold mb-12">How It Works </h3>
         <div className="flex justify-center space-x-10">
           <div className="bg-white text-blue-700 px-8 py-6 rounded shadow w-64">
             <h4 className="text-lg font-bold mb-2">Sign Up</h4>
@@ -99,7 +99,7 @@ function App() {
       </section>
 
       <section className="px-20 py-20 bg-white text-center">
-        <h3 className="text-3xl font-bold mb-12">What Our Users Say 😊</h3>
+        <h3 className="text-3xl font-bold mb-12">What Our Users Say </h3>
         <div className="grid grid-cols-2 gap-10 max-w-6xl mx-auto">
           <div className="bg-gray-100 p-6 rounded shadow text-left">
             <p className="italic mb-4">
@@ -123,7 +123,7 @@ function App() {
       </section>
 
       <section className="px-20 py-20 bg-gradient-to-r from-purple-500 to-purple-700 text-white text-center">
-        <h3 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey? 🚀</h3>
+        <h3 className="text-3xl font-bold mb-4">Ready to Start Your Learning Journey? </h3>
         <p className="text-lg mb-6">
           Join thousands of learners achieving their goals with our AI platform.
         </p>
